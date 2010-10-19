@@ -6,3 +6,5 @@ class HelloWorld
     [200, {"Content-Type" => "text/html"}, "Hello Rack!"]
   end
 end
+
+run HelloWorld.new
