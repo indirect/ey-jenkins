@@ -1,3 +1,10 @@
+require 'socket'
+
 Dir.chdir(current_path) do
-  `bundle exec hudson server --kill`
+  begin
+    TCPSocket.new("127.0.0.1", 3001).close
+    `bundle exec hudson server --kill`
+    sleep 5
+  rescue Errno::ECONNREFUSED
+  end
 end
