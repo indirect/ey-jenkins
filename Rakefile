@@ -75,7 +75,7 @@ namespace :db do
         }
       NGINX
       sleep 2
-      sh "sudo /etc/init.d nginx start"
+      sh "sudo /etc/init.d/nginx start"
     end
   end
 
