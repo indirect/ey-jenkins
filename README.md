@@ -12,9 +12,9 @@ So, let's get down to business:
   4. Boot a single instance in your new environment.
   5. Run this on your local machine:
 
-            git clone http://github.com/indirect/ey-hudson.git
-            cd ey-hudson
-            ey deploy
+          git clone http://github.com/indirect/ey-hudson.git
+          cd ey-hudson
+          ey deploy
 
   6. Click the "HTTP" link on your EY dashboard, and that's your brand-new Hudson installation.
 
