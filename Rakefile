@@ -16,6 +16,7 @@ namespace :db do
       next
     end
 
+    sh "sudo /etc/init.d/nginx stop"
     File.open(conf, "w") do |f|
       f.write <<-NGINX
         server {
@@ -73,7 +74,8 @@ namespace :db do
 
         }
       NGINX
-      sh "sudo /etc/init.d/nginx restart"
+      sleep 2
+      sh "sudo /etc/init.d nginx start"
     end
   end
 
