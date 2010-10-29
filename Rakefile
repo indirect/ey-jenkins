@@ -70,7 +70,7 @@ namespace :db do
 
         }
       NGINX
-      sudo "/etc/init.d/nginx restart"
+      sh "sudo /etc/init.d/nginx restart"
     end
   end
 
