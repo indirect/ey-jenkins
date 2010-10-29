@@ -24,10 +24,14 @@ You'll probably want create an account, enable security on Hudson, and then crea
 
 If you use Bundler, you'll need to undo the Bundled environment that Hudson is running in. Go to "Manage Hudson" and add three environment variables: `BUNDLE_BIN_PATH`, `RUBYOPT`, and `BUNDLE_GEMFILE`. Leave all three values blank.
 
+In my projects, I also add the environment variable `CI` set to "true". That lets me do things like disable focused specs in CI runs with a line like this in my spec_helper.rb:
+
+    config.filter_run :focused => true unless ENV["CI"]
+
 If you use Git, you'll need to ssh into the server and run these commands as the `deploy` user:
 
-  git config --global user.name "Hudson"
-  git config --global user.email "<your email>"
+    git config --global user.name "Hudson"
+    git config --global user.email "<your email>"
 
 If you use private GitHub repositories, you'll also need to run `ssh-keygen -t rsa` and then add the id_rsa.pub file to your GitHub account so that Hudson can check out your projects.
 
