@@ -2,12 +2,15 @@ namespace :db do
 
   desc "Configure Nginx reverse proxy to Hudson"
   task :migrate do
-    conf = "/data/nginx/servers/keep.hudson.conf"
     unless File.exist?("/data/nginx/servers")
       puts "This doesn't look like an EY instance..."
       next
     end
 
+    orig = "/data/nginx/servers/hudson.conf"
+    FileUtils.rm_rf(orig) if File.exist?(orig)
+
+    conf = "/data/nginx/servers/keep.hudson.conf"
     if File.exist?(conf)
       puts "There's already a file at #{conf}"
       next
