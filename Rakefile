@@ -16,9 +16,6 @@ namespace :db do
       next
     end
 
-    puts "Stopping nginx..."
-    sh "sudo /etc/init.d/nginx stop 1>&2"
-
     puts "Writing reverse-proxy config..."
     File.open(conf, "w") do |f|
       f.write <<-NGINX
@@ -77,10 +74,6 @@ namespace :db do
 
         }
       NGINX
-      sleep 5
-
-      puts "Starting nginx again..."
-      sh "sudo /etc/init.d/nginx start 1>&2"
     end
   end
 
