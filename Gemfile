@@ -1,2 +1,2 @@
 source :rubygems
-gem "hudson"
+gem "jenkins"
